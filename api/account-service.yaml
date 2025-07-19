@@ -19,7 +19,103 @@ environments:
     modified: 1752836281009
     isPrivate: false
 spec:
+  contents:
+    openapi: 3.0.3
+    info:
+      title: Accounts API
+      version: 1.0.0
+      description: This API manages account information and balances.
+      contact:
+        email: stephen.brown@konghq.com
+    servers:
+      - url: http://localhost:8081
+        description: Local development server
+    paths:
+      /accounts:
+        post:
+          tags:
+            - accounts
+          summary: Create account
+          description: Creates a new account with an initial balance. The account ID is
+            automatically generated.
+          operationId: createAccount
+          requestBody:
+            description: Details of the new account
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/CreateAccountRequest"
+                examples:
+                  savings_account:
+                    summary: Savings account example
+                    value:
+                      type: savings
+                      initial_balance: 5000
+          responses:
+            "201":
+              description: Account created successfully
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Account"
+                  examples:
+                    created_account:
+                      summary: Created account
+                      value:
+                        account_id: 123e4567-e89b-12d3-a456-426614174000
+                        type: savings
+                        balance: 5000
+    components:
+      schemas:
+        CreateAccountRequest:
+          type: object
+          required:
+            - type
+            - initial_balance
+          properties:
+            type:
+              type: string
+              description: Type of account (e.g. checking, savings)
+            initial_balance:
+              type: number
+              format: double
+              description: Initial deposit amount
+        Account:
+          type: object
+          properties:
+            account_id:
+              type: string
+              format: uuid
+            type:
+              type: string
+            balance:
+              type: number
+    tags:
+      - name: accounts
+        description: Accounts endpoints
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1752836281008
+    modified: 1752940288280
+testSuites:
+  - name: Accounts API Test Suite
+    meta:
+      id: uts_bb1f5b192a034c5fb8756048dcad5157
+      created: 1752938240764
+      modified: 1752938254731
+      sortKey: -1752938240764
+    tests:
+      - name: Returns 200
+        meta:
+          id: ut_813427d0b4ea460a8c1f31b63e90b722
+          created: 1752938296216
+          modified: 1752938347771
+          sortKey: -1752938296216
+        code: |-
+          const response = await insomnia.send();
+          expect(response.status).to.equal(201);
+          const account = JSON.parse(response.data);
+          expect(account).to.have.property('account_id').that.is.a('string');
+          expect(account).to.have.property('type').that.is.a('string');
+          expect(account).to.have.property('balance').that.is.a('number');
