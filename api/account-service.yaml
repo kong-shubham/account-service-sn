@@ -5,6 +5,28 @@ meta:
   created: 1752836281005
   modified: 1752836281005
   description: ""
+collection:
+  - url: ""
+    name: New Request
+    meta:
+      id: req_6284401aecb647be9121f6095dee804f
+      created: 1752940656578
+      modified: 1752940656578
+      isPrivate: false
+      description: ""
+      sortKey: -1752940656578
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.3.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
@@ -66,6 +88,37 @@ spec:
                         account_id: 123e4567-e89b-12d3-a456-426614174000
                         type: savings
                         balance: 5000
+      /accounts/{account_id}:
+        delete:
+          tags:
+            - accounts
+          summary: Delete account
+          description: Deletes an account based on id
+          operationId: deleteAccount
+          parameters:
+            - name: account_id
+              in: path
+              required: true
+              schema:
+                type: string
+          responses:
+            "204":
+              description: Account deleted successfully
+        get:
+          tags:
+            - accounts
+          summary: get account details
+          description: get an account based on id
+          operationId: getAccount
+          parameters:
+            - name: account_id
+              in: path
+              required: true
+              schema:
+                type: string
+          responses:
+            "200":
+              description: Account details
     components:
       schemas:
         CreateAccountRequest:
@@ -97,7 +150,7 @@ spec:
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1752940288280
+    modified: 1753025453167
 testSuites:
   - name: Accounts API Test Suite
     meta:
