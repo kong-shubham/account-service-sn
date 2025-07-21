@@ -197,7 +197,7 @@ environments:
       meta:
         id: env_004fc9283e5e4085b1a8d80fa2f388d2
         created: 1753113439375
-        modified: 1753113971579
+        modified: 1753115639840
         isPrivate: false
         sortKey: 1753113439375
       data:
@@ -205,6 +205,7 @@ environments:
         base_path: ""
         host: localhost:8081
         account_id: d97f57fd-92b2-462d-a6ea-4da2429b3c37
+        "": ""
 spec:
   contents:
     openapi: 3.0.3
