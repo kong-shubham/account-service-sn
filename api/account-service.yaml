@@ -71,7 +71,7 @@ spec:
             - accounts
           summary: Get all accounts
           description: get all accounts
-          operationId: getAccount
+          operationId: getAccounts
           responses:
             "200":
               description: Accounts retrieved successfully
@@ -87,21 +87,6 @@ spec:
                         type: savings
                         balance: 5000
       /accounts/{account_id}:
-        delete:
-          tags:
-            - accounts
-          summary: Delete account
-          description: Deletes an account based on id
-          operationId: deleteAccount
-          parameters:
-            - name: account_id
-              in: path
-              required: true
-              schema:
-                type: string
-          responses:
-            "204":
-              description: Account deleted successfully
         get:
           tags:
             - accounts
@@ -148,7 +133,7 @@ spec:
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1753072126682
+    modified: 1753072371715
 testSuites:
   - name: Accounts API Test Suite
     meta:
