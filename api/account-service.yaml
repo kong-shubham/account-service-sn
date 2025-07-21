@@ -37,7 +37,7 @@ collection:
         meta:
           id: req_a6158336dc414ddba58d091ce9795a2c
           created: 1753113883395
-          modified: 1753113970612
+          modified: 1753115510791
           isPrivate: false
           description: Creates a new account with an initial balance. The account ID is
             automatically generated.
@@ -55,6 +55,7 @@ collection:
             disabled: false
             value: application/json
         scripts:
+          preRequest: ""
           afterResponse: |-
             let data= insomnia.response.json();
             insomnia.environment.set("account_id", data.account_id);
@@ -204,34 +205,12 @@ environments:
         base_path: ""
         host: localhost:8081
         account_id: d97f57fd-92b2-462d-a6ea-4da2429b3c37
-    - name: OpenAPI env localhost:8081
-      meta:
-        id: env_520df9cefbaf4a59b4aa84bce38e0eda
-        created: 1753113859179
-        modified: 1753113859179
-        isPrivate: false
-        sortKey: 1753113859179
-      data:
-        scheme: http
-        base_path: ""
-        host: localhost:8081
-    - name: OpenAPI env localhost:8081
-      meta:
-        id: env_746e8e5bd72d4c1a993aca37932e2ecb
-        created: 1753113883394
-        modified: 1753113883394
-        isPrivate: false
-        sortKey: 1753113883394
-      data:
-        scheme: http
-        base_path: ""
-        host: localhost:8081
 spec:
   contents:
     openapi: 3.0.3
     info:
       title: Accounts API
-      version: 1.0.0
+      version: 1.1.0
       description: This API manages account information and balances.
       contact:
         email: stephen.brown@konghq.com
@@ -389,7 +368,7 @@ spec:
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1753113846897
+    modified: 1753115571474
 testSuites:
   - name: New Suite
     meta:
@@ -402,8 +381,8 @@ testSuites:
         meta:
           id: ut_0664187fe1184375b7e15f3224202706
           created: 1752940413066
-          modified: 1753114103428
-          sortKey: -1752940413066
+          modified: 1753115398204
+          sortKey: -1753115007835
         requestId: req_a6158336dc414ddba58d091ce9795a2c
         code: |-
           const response = await insomnia.send();
@@ -477,3 +456,13 @@ testSuites:
           expect(response.status).to.equal(200);
           const account = JSON.parse(response.data);
           expect(account).to.have.property('account_id').that.is.a('string');
+      - name: Returns 204
+        meta:
+          id: ut_290d54a9222a4b35b402d28094dea24b
+          created: 1753115007834
+          modified: 1753115404920
+          sortKey: -1753113687842
+        requestId: req_d9cc3b0ad0e845caa4dde9bed355f19e
+        code: |-
+          const response = await insomnia.send();
+          expect(response.status).to.equal(204);
