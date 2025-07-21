@@ -19,7 +19,7 @@ collection:
         meta:
           id: req_9d19a90e32e545d2ac2abbb1ba252e87
           created: 1753112420431
-          modified: 1753112810320
+          modified: 1753112991442
           isPrivate: false
           description: Creates a new account with an initial balance. The account ID is
             automatically generated.
@@ -89,11 +89,20 @@ collection:
         meta:
           id: req_da86e6967e584b12bd9c4ddc545b2c6b
           created: 1753112420433
-          modified: 1753112420433
+          modified: 1753112952898
           isPrivate: false
           description: Deletes an account based on id
           sortKey: -1753112420433
         method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"amount": 100
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -107,7 +116,7 @@ collection:
         meta:
           id: req_6d260e7243d74aa3b714219e4aacc007
           created: 1753112420434
-          modified: 1753112891943
+          modified: 1753112961413
           isPrivate: false
           description: credits an account based on id
           sortKey: -1753112420434
