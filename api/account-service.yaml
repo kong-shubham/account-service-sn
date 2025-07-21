@@ -34,9 +34,9 @@ collection:
             }
         headers:
           - name: Content-Type
-            disabled: false
             value: application/json
         scripts:
+          preRequest: ""
           afterResponse: |-
             let data=insomnia.response.json();
             insomnia.environment.set("account_id", data.account_id); 
@@ -58,6 +58,9 @@ collection:
           description: Deletes an account based on id
           sortKey: -1753112420432
         method: DELETE
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -76,6 +79,9 @@ collection:
           description: get an account based on id
           sortKey: -1753112420432
         method: GET
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -103,6 +109,9 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -130,6 +139,9 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -138,6 +150,9 @@ collection:
             send: true
             store: true
           rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
   - name: health
     meta:
       id: fld_09ae818bee5b4cf7b9e1c4b8d8ec0cc5
@@ -156,6 +171,9 @@ collection:
           description: healtch check
           sortKey: -1753112420434
         method: GET
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -164,6 +182,9 @@ collection:
             send: true
             store: true
           rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
 cookieJar:
   name: Default Jar
   meta:
