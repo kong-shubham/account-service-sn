@@ -66,6 +66,26 @@ spec:
                         account_id: 123e4567-e89b-12d3-a456-426614174000
                         type: savings
                         balance: 5000
+        get:
+          tags:
+            - accounts
+          summary: Get all accounts
+          description: get all accounts
+          operationId: getAccount
+          responses:
+            "200":
+              description: Accounts retrieved successfully
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Account"
+                  examples:
+                    created_account:
+                      summary: Created account
+                      value:
+                        account_id: 123e4567-e89b-12d3-a456-426614174000
+                        type: savings
+                        balance: 5000
       /accounts/{account_id}:
         delete:
           tags:
@@ -128,7 +148,7 @@ spec:
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1753031001935
+    modified: 1753072126682
 testSuites:
   - name: Accounts API Test Suite
     meta:
