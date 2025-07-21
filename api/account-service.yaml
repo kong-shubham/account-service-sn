@@ -19,6 +19,9 @@ collection:
     headers:
       - name: User-Agent
         value: insomnia/11.3.0
+    scripts:
+      preRequest: ""
+      afterResponse: ""
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -119,6 +122,48 @@ spec:
           responses:
             "200":
               description: Account details
+      /accounts/{account_id}/debit:
+        post:
+          tags:
+            - accounts
+          summary: debit account
+          description: Deletes an account based on id
+          operationId: debitAccount
+          parameters:
+            - name: account_id
+              in: path
+              required: true
+              schema:
+                type: string
+          responses:
+            "200":
+              description: Account debited successfully
+      /accounts/{account_id}/credit:
+        post:
+          tags:
+            - accounts
+          summary: credit account
+          description: credits an account based on id
+          operationId: creditAccount
+          parameters:
+            - name: account_id
+              in: path
+              required: true
+              schema:
+                type: string
+          responses:
+            "200":
+              description: Account credited successfully
+      /health:
+        get:
+          tags:
+            - health
+          summary: health check
+          description: healtch check
+          operationId: healtCheck
+          responses:
+            "200":
+              description: Account credited successfully
     components:
       schemas:
         CreateAccountRequest:
@@ -147,10 +192,12 @@ spec:
     tags:
       - name: accounts
         description: Accounts endpoints
+      - name: health
+        description: health check
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1753025453167
+    modified: 1753112391458
 testSuites:
   - name: Accounts API Test Suite
     meta:
