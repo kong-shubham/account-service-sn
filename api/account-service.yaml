@@ -6,43 +6,184 @@ meta:
   modified: 1752836281005
   description: ""
 collection:
-  - url: ""
-    name: New Request
+  - name: accounts
     meta:
-      id: req_6284401aecb647be9121f6095dee804f
-      created: 1752940656578
-      modified: 1752940656578
-      isPrivate: false
-      description: ""
-      sortKey: -1752940656578
-    method: GET
-    headers:
-      - name: User-Agent
-        value: insomnia/11.3.0
-    scripts:
-      preRequest: ""
-      afterResponse: ""
-    settings:
-      renderRequestBody: true
-      encodeUrl: true
-      followRedirects: global
-      cookies:
-        send: true
-        store: true
-      rebuildPath: true
+      id: fld_ff1c3c80985f4d3e9fc193ebc5733860
+      created: 1753112420430
+      modified: 1753112761420
+      sortKey: -1753112420430
+      description: Accounts endpoints
+    children:
+      - url: "{{ _.base_url }}/accounts"
+        name: Create account
+        meta:
+          id: req_9d19a90e32e545d2ac2abbb1ba252e87
+          created: 1753112420431
+          modified: 1753112810320
+          isPrivate: false
+          description: Creates a new account with an initial balance. The account ID is
+            automatically generated.
+          sortKey: -1753112420431
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "type": "savings",
+              "initial_balance": 10000
+            }
+        headers:
+          - name: Content-Type
+            disabled: false
+            value: application/json
+        scripts:
+          afterResponse: |-
+            let data=insomnia.response.json();
+            insomnia.environment.set("account_id", data.account_id); 
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}"
+        name: Delete account
+        meta:
+          id: req_0c511ebc3a5d429f8d75a87cd0f8b74d
+          created: 1753112420432
+          modified: 1753112420432
+          isPrivate: false
+          description: Deletes an account based on id
+          sortKey: -1753112420432
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}"
+        name: get account details
+        meta:
+          id: req_165be711624144b688d07a13b66b96cc
+          created: 1753112420432
+          modified: 1753112420432
+          isPrivate: false
+          description: get an account based on id
+          sortKey: -1753112420432
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}/debit"
+        name: debit account
+        meta:
+          id: req_da86e6967e584b12bd9c4ddc545b2c6b
+          created: 1753112420433
+          modified: 1753112420433
+          isPrivate: false
+          description: Deletes an account based on id
+          sortKey: -1753112420433
+        method: POST
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}/credit"
+        name: credit account
+        meta:
+          id: req_6d260e7243d74aa3b714219e4aacc007
+          created: 1753112420434
+          modified: 1753112891943
+          isPrivate: false
+          description: credits an account based on id
+          sortKey: -1753112420434
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"amount": 100
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: health
+    meta:
+      id: fld_09ae818bee5b4cf7b9e1c4b8d8ec0cc5
+      created: 1753112420431
+      modified: 1753112420431
+      sortKey: -1753112420431
+      description: health check
+    children:
+      - url: "{{ _.base_url }}/health"
+        name: health check
+        meta:
+          id: req_e9fc5c1915f049e59d72cb7062ad6e64
+          created: 1753112420434
+          modified: 1753112420434
+          isPrivate: false
+          description: healtch check
+          sortKey: -1753112420434
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
     id: jar_3282cf868fcd86dfe3290cbf99cf4765c9480ad4
     created: 1752836281009
-    modified: 1752836281009
+    modified: 1753112761419
 environments:
   name: Base Environment
   meta:
     id: env_3282cf868fcd86dfe3290cbf99cf4765c9480ad4
     created: 1752836281009
-    modified: 1752836281009
+    modified: 1753112761420
     isPrivate: false
+  data:
+    base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+  subEnvironments:
+    - name: OpenAPI env localhost:8081
+      meta:
+        id: env_8e521ea4316e42a8be16cd96af86abdf
+        created: 1753112420429
+        modified: 1753112761419
+        isPrivate: false
+        sortKey: 1753112420430
+      data:
+        scheme: http
+        base_path: ""
+        host: localhost:8081
+        accountId: cbbd2ec6-a463-4258-a819-8fa276ee0d50
+        account_id: f867f4ea-6c34-4d1f-b378-72acb1d5c0cb
 spec:
   contents:
     openapi: 3.0.3
