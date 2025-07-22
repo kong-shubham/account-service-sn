@@ -6,101 +6,24 @@ meta:
   modified: 1752836281005
   description: ""
 collection:
-  - name: accounts
+  - name: health
     meta:
-      id: fld_e90c31df8d704dc9a42951b480b3fb17
-      created: 1753110927617
-      modified: 1753110927617
-      sortKey: -1753110927617
-      description: Accounts endpoints
+      id: fld_0f548de5066e4b3bb23b7f667c970c6d
+      created: 1753201117007
+      modified: 1753201117007
+      sortKey: -1753201117007
+      description: health checks
     children:
-      - url: "{{ _.base_url }}/accounts"
-        name: Create account
-        meta:
-          id: req_abb84445866c46a392076a1fe3acb726
-          created: 1753110927617
-          modified: 1753111461042
-          isPrivate: false
-          description: Creates a new account with an initial balance. The account ID is
-            automatically generated.
-          sortKey: -1753110927617
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "type": "savings",
-              "initial_balance": 200
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-        scripts:
-          preRequest: ""
-          afterResponse: ""
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/accounts"
-        name: Get all accounts
-        meta:
-          id: req_121fa1228329496f8e59f79003f77f5d
-          created: 1753110927618
-          modified: 1753110927618
-          isPrivate: false
-          description: get all accounts
-          sortKey: -1753110927618
-        method: GET
-        scripts:
-          preRequest: ""
-          afterResponse: ""
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}"
-        name: get account details
-        meta:
-          id: req_f5d04b83362c4657acc72b8da4c0b8a8
-          created: 1753110927618
-          modified: 1753111593293
-          isPrivate: false
-          description: get an account based on id
-          sortKey: -1753110927618
-        method: GET
-        scripts:
-          preRequest: ""
-          afterResponse: ""
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
       - url: "{{ _.base_url }}/health"
-        name: Get Health Check
+        name: Health check
         meta:
-          id: req_5d8f277200574c09a1c5c6eb1d55a30e
-          created: 1753111604704
-          modified: 1753111617984
+          id: req_f1e1c7c873ad40449d110c93d7888184
+          created: 1753201117008
+          modified: 1753201117008
           isPrivate: false
-          description: get an account based on id
-          sortKey: -1753110927617.5
+          description: Check if enadpoint is up
+          sortKey: -1753201117008
         method: GET
-        scripts:
-          preRequest: ""
-          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -109,9 +32,6 @@ collection:
             send: true
             store: true
           rebuildPath: true
-    scripts:
-      afterResponse: ""
-      preRequest: ""
 cookieJar:
   name: Default Jar
   meta:
@@ -123,7 +43,7 @@ environments:
   meta:
     id: env_3282cf868fcd86dfe3290cbf99cf4765c9480ad4
     created: 1752836281009
-    modified: 1753110927615
+    modified: 1753201117006
     isPrivate: false
   data:
     base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
@@ -135,6 +55,17 @@ environments:
         modified: 1753110927616
         isPrivate: false
         sortKey: 1753110927616
+      data:
+        scheme: http
+        base_path: ""
+        host: localhost:8081
+    - name: OpenAPI env localhost:8081
+      meta:
+        id: env_15463636a1614c72818925e8aad74e72
+        created: 1753201117006
+        modified: 1753201117006
+        isPrivate: false
+        sortKey: 1753201117006
       data:
         scheme: http
         base_path: ""
@@ -252,8 +183,8 @@ spec:
         post:
           tags:
             - accounts
-          summary: get account details
-          description: get an account based on id
+          summary: Credit Account
+          description: Credit Account
           operationId: creditAccount
           parameters:
             - name: account_id
@@ -268,8 +199,8 @@ spec:
         post:
           tags:
             - accounts
-          summary: Get Account Details
-          description: get an account based on id
+          summary: Debit Account
+          description: Debit Account
           operationId: debitAccount
           parameters:
             - name: account_id
@@ -313,7 +244,7 @@ spec:
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1753201060833
+    modified: 1753201179704
 testSuites:
   - name: Accounts API Test Suite
     meta:
