@@ -36,7 +36,7 @@ collection:
     meta:
       id: fld_82056fd9225844528f822e68eb1892c7
       created: 1753201201342
-      modified: 1753201700245
+      modified: 1753201941495
       sortKey: -1753201201342
       description: Accounts endpoints
     children:
@@ -135,7 +135,7 @@ collection:
         meta:
           id: req_fa2239ec81604d0abe3ae0e5e613f399
           created: 1753201201343
-          modified: 1753201660455
+          modified: 1753201917215
           isPrivate: false
           description: Creates a new account with an initial balance. The account ID is
             automatically generated.
@@ -328,13 +328,13 @@ cookieJar:
   meta:
     id: jar_3282cf868fcd86dfe3290cbf99cf4765c9480ad4
     created: 1752836281009
-    modified: 1753201700244
+    modified: 1753201941493
 environments:
   name: Base Environment
   meta:
     id: env_3282cf868fcd86dfe3290cbf99cf4765c9480ad4
     created: 1752836281009
-    modified: 1753201700244
+    modified: 1753201941494
     isPrivate: false
   data:
     base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
@@ -352,17 +352,18 @@ environments:
         host: localhost:8081
         accountId: c794d5a8-c36a-4fc7-9296-5a4821f9dcb2
         account_id: be16b390-b2e2-44c1-9e10-5daa06ad7268
-    - name: OpenAPI env localhost:8081
+    - name: "OpenAPI env Konnect "
       meta:
         id: env_15463636a1614c72818925e8aad74e72
         created: 1753201117006
-        modified: 1753201117006
+        modified: 1753201941494
         isPrivate: false
         sortKey: 1753201117006
       data:
-        scheme: http
+        scheme: https
         base_path: ""
-        host: localhost:8081
+        host: kong-1b683354d5euvprhl.kongcloud.dev
+        account_id: 50198613-f2a7-4fee-af9b-56764c314869
     - name: OpenAPI env localhost:8081
       meta:
         id: env_9c484cd405df415ba00e959c5bbaf399
