@@ -226,8 +226,8 @@ spec:
         delete:
           tags:
             - accounts
-          summary: Get Account Details by Id
-          description: get an account based on id
+          summary: Delete an Account
+          description: Delete an Account
           operationId: deleteAccount
           parameters:
             - name: account_id
@@ -236,8 +236,8 @@ spec:
               schema:
                 type: string
           responses:
-            "200":
-              description: Account details
+            "204":
+              description: delete Account details
       /health:
         get:
           tags:
@@ -313,7 +313,7 @@ spec:
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1753201008073
+    modified: 1753201060833
 testSuites:
   - name: Accounts API Test Suite
     meta:
