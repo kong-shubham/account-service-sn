@@ -34,8 +34,10 @@ collection:
             }
         headers:
           - name: Content-Type
-            disabled: false
             value: application/json
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -54,6 +56,9 @@ collection:
           description: get all accounts
           sortKey: -1753110927618
         method: GET
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -72,6 +77,9 @@ collection:
           description: get an account based on id
           sortKey: -1753110927618
         method: GET
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -90,6 +98,9 @@ collection:
           description: get an account based on id
           sortKey: -1753110927617.5
         method: GET
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -98,6 +109,9 @@ collection:
             send: true
             store: true
           rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
 cookieJar:
   name: Default Jar
   meta:
@@ -176,7 +190,7 @@ spec:
         get:
           tags:
             - accounts
-          summary: Get all accounts
+          summary: Get All Accounts Details
           description: get all accounts
           operationId: getAccounts
           responses:
@@ -187,8 +201,8 @@ spec:
                   schema:
                     $ref: "#/components/schemas/Account"
                   examples:
-                    created_account:
-                      summary: Created account
+                    all_account:
+                      summary: All account
                       value:
                         account_id: 123e4567-e89b-12d3-a456-426614174000
                         type: savings
@@ -197,7 +211,7 @@ spec:
         get:
           tags:
             - accounts
-          summary: get account details
+          summary: Get Account Details by Id
           description: get an account based on id
           operationId: getAccount
           parameters:
@@ -239,7 +253,7 @@ spec:
         post:
           tags:
             - accounts
-          summary: get account details
+          summary: Get Account Details
           description: get an account based on id
           operationId: debitAccount
           parameters:
@@ -284,7 +298,7 @@ spec:
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1753111987256
+    modified: 1753200932386
 testSuites:
   - name: Accounts API Test Suite
     meta:
