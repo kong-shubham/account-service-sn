@@ -148,7 +148,7 @@ collection:
         meta:
           id: req_fa2239ec81604d0abe3ae0e5e613f399
           created: 1753201201343
-          modified: 1753245918637
+          modified: 1753249396958
           isPrivate: false
           description: Creates a new account with an initial balance. The account ID is
             automatically generated.
@@ -255,7 +255,7 @@ collection:
         meta:
           id: req_94a92041e6b6458981e33e6b7c19cefd
           created: 1753201201344
-          modified: 1753201665811
+          modified: 1753249446488
           isPrivate: false
           description: Credit Account
           sortKey: -1753201201344
