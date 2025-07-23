@@ -5,6 +5,161 @@ meta:
   created: 1752836281005
   modified: 1752836281005
   description: ""
+collection:
+  - name: accounts
+    meta:
+      id: fld_876d85e16bf948cbbbedd5fa0ca7f9fe
+      created: 1753245844621
+      modified: 1753245844621
+      sortKey: -1753245844621
+      description: Accounts endpoints
+    children:
+      - url: "{{ _.base_url }}/accounts"
+        name: Create account
+        meta:
+          id: req_18fe275bdc814199ba009abad6e9165b
+          created: 1753245844621
+          modified: 1753245864538
+          isPrivate: false
+          description: Creates a new account with an initial balance. The account ID is
+            automatically generated.
+          sortKey: -1753245844621
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "type": "string",
+              "initial_balance": 0
+            }
+        headers:
+          - name: Content-Type
+            disabled: false
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accounts"
+        name: get all accounts
+        meta:
+          id: req_5a0d8ef0e86e439c8f220b70d5f6c7cc
+          created: 1753245844621
+          modified: 1753245844621
+          isPrivate: false
+          description: get all accounts
+          sortKey: -1753245844621
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}"
+        name: Delete account
+        meta:
+          id: req_50135b429bbe491f83d81243feee68d5
+          created: 1753245844622
+          modified: 1753245844622
+          isPrivate: false
+          description: Deletes an account based on id
+          sortKey: -1753245844622
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}/debit"
+        name: debit account
+        meta:
+          id: req_5f1a72bc611f4bb7829d92632dade618
+          created: 1753245844622
+          modified: 1753245844622
+          isPrivate: false
+          description: Deletes an account based on id
+          sortKey: -1753245844622
+        method: POST
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}"
+        name: get account details
+        meta:
+          id: req_641c810a7db9461b9d9d757c77984e23
+          created: 1753245844622
+          modified: 1753245844622
+          isPrivate: false
+          description: get an account based on id
+          sortKey: -1753245844622
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}/credit"
+        name: credit account
+        meta:
+          id: req_8e7b76e2ce4f44cc83e183dd3a9f76a2
+          created: 1753245844622
+          modified: 1753245856939
+          isPrivate: false
+          description: credits an account based on id
+          sortKey: -1753245844622
+        method: POST
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: health
+    meta:
+      id: fld_93b8d5bcdd594b539781703d89b712a7
+      created: 1753245844621
+      modified: 1753245844621
+      sortKey: -1753245844621
+      description: health check
+    children:
+      - url: "{{ _.base_url }}/health"
+        name: health check
+        meta:
+          id: req_21b423b9fea04e7f96a51301008c28f1
+          created: 1753245844623
+          modified: 1753245844623
+          isPrivate: false
+          description: healtch check
+          sortKey: -1753245844623
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
@@ -16,7 +171,7 @@ environments:
   meta:
     id: env_3282cf868fcd86dfe3290cbf99cf4765c9480ad4
     created: 1752836281009
-    modified: 1753113971579
+    modified: 1753245844620
     isPrivate: false
   data:
     base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
@@ -34,6 +189,17 @@ environments:
         host: localhost:8081
         account_id: d97f57fd-92b2-462d-a6ea-4da2429b3c37
         "": ""
+    - name: OpenAPI env localhost:8081
+      meta:
+        id: env_344ff24751714e1eb360bc312d23a3f2
+        created: 1753245844620
+        modified: 1753245844620
+        isPrivate: false
+        sortKey: 1753245844620
+      data:
+        scheme: http
+        base_path: ""
+        host: localhost:8081
 spec:
   contents:
     openapi: 3.0.3
