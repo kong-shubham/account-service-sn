@@ -1,4 +1,5 @@
 type: spec.insomnia.rest/5.0
+schema_version: "5.1"
 name: account-service
 meta:
   id: wrk_5ba79f58d14b4a2da0a48e86ddcc5c24
@@ -24,9 +25,6 @@ collection:
           description: Check if enadpoint is up
           sortKey: -1753201117008
         method: GET
-        scripts:
-          preRequest: ""
-          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -35,14 +33,11 @@ collection:
             send: true
             store: true
           rebuildPath: true
-    scripts:
-      afterResponse: ""
-      preRequest: ""
   - name: accounts
     meta:
       id: fld_82056fd9225844528f822e68eb1892c7
       created: 1753201201342
-      modified: 1753245934165
+      modified: 1755598095473
       sortKey: -1753201201342
       description: Accounts endpoints
     children:
@@ -56,9 +51,6 @@ collection:
           description: get all accounts
           sortKey: -1753201201343
         method: GET
-        scripts:
-          preRequest: ""
-          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -77,9 +69,6 @@ collection:
           description: Delete an Account
           sortKey: -1753201201343
         method: DELETE
-        scripts:
-          preRequest: ""
-          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -134,7 +123,6 @@ collection:
               const responseBody = JSON.parse(response.body.toString());
               insomnia.environment.set('accountId', responseBody.account_id);
             }
-          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -143,12 +131,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}/accounts"
+      - url: "{{ _.base_url }}/accounts/"
         name: Create account
         meta:
           id: req_fa2239ec81604d0abe3ae0e5e613f399
           created: 1753201201343
-          modified: 1753249396958
+          modified: 1755598092892
           isPrivate: false
           description: Creates a new account with an initial balance. The account ID is
             automatically generated.
@@ -164,8 +152,10 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        authentication:
+          type: bearer
+          disabled: true
         scripts:
-          preRequest: ""
           afterResponse: >-
             // Extract account_id from the response and store it in the
             environment
@@ -194,7 +184,7 @@ collection:
         meta:
           id: req_5cf345d8a7f3401dae840aef28d1304c
           created: 1753201201344
-          modified: 1753201668626
+          modified: 1755597958759
           isPrivate: false
           description: Debit Account
           sortKey: -1753201201344
@@ -241,7 +231,6 @@ collection:
               const responseBody = JSON.parse(response.body.toString());
               insomnia.environment.set('accountId', responseBody.account_id);
             }
-          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -302,7 +291,6 @@ collection:
               const responseBody = JSON.parse(response.body.toString());
               insomnia.environment.set('accountId', responseBody.account_id);
             }
-          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -311,9 +299,6 @@ collection:
             send: true
             store: true
           rebuildPath: true
-    scripts:
-      afterResponse: ""
-      preRequest: ""
   - name: health
     meta:
       id: fld_a8ba26c2f863484ebe2ca4e96e3b7933
@@ -332,9 +317,6 @@ collection:
           description: Check if enadpoint is up
           sortKey: -1753201201344
         method: GET
-        scripts:
-          preRequest: ""
-          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -343,21 +325,72 @@ collection:
             send: true
             store: true
           rebuildPath: true
-    scripts:
-      afterResponse: ""
-      preRequest: ""
+  - name: AI
+    meta:
+      id: fld_aa93f00ec9ce4f1d9268132506bfbf0a
+      created: 1753426423554
+      modified: 1753426423554
+      sortKey: -1753426423555
+      description: ""
+    children:
+      - url: https://kong-7b2a1eea40us42stf.kongcloud.dev/llm/v1/chat
+        name: MistralAI
+        meta:
+          id: req_338b4a5aab184efcaedbe0eb680bf0e4
+          created: 1753426413208
+          modified: 1753435003484
+          isPrivate: false
+          description: ""
+          sortKey: -1753426431440
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "messages": [
+                {
+                  "role": "system",
+                  "content": "You are a mathematician"
+                },
+                {
+                  "role": "user",
+                  "content": "what is 1+1"
+                }
+              ],
+              "model": "mistral-tiny"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+          - name: Authorization
+            value: Bearer 332LKrCd7ew5kB2qPwsNDVPvWA2YCIZ1
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
     id: jar_3282cf868fcd86dfe3290cbf99cf4765c9480ad4
     created: 1752836281009
-    modified: 1753245934162
+    modified: 1755598095472
 environments:
   name: Base Environment
   meta:
     id: env_3282cf868fcd86dfe3290cbf99cf4765c9480ad4
     created: 1752836281009
-    modified: 1753245934164
+    modified: 1755598095473
     isPrivate: false
   data:
     base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
@@ -366,7 +399,7 @@ environments:
       meta:
         id: env_583f7fe6114f4b95865170c01f0cca53
         created: 1753110927616
-        modified: 1753201700244
+        modified: 1755598095473
         isPrivate: false
         sortKey: 1753110927616
       data:
@@ -374,19 +407,18 @@ environments:
         base_path: ""
         host: localhost:8081
         accountId: c794d5a8-c36a-4fc7-9296-5a4821f9dcb2
-        account_id: be16b390-b2e2-44c1-9e10-5daa06ad7268
+        account_id: 0748bd92-6c1d-49f3-9998-0edfcd500d62
     - name: "OpenAPI env Konnect "
       meta:
         id: env_15463636a1614c72818925e8aad74e72
         created: 1753201117006
-        modified: 1753245934163
+        modified: 1753960668163
         isPrivate: false
         sortKey: 1753201117006
       data:
         scheme: https
         base_path: ""
         host: kong-1b683354d5euvprhl.kongcloud.dev
-        account_id: 478811d0-f327-4c8a-8785-a2b363a1216c
     - name: OpenAPI env localhost:8081
       meta:
         id: env_9c484cd405df415ba00e959c5bbaf399
@@ -572,7 +604,7 @@ spec:
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1753201179704
+    modified: 1754381906821
 testSuites:
   - name: Account Test Suite
     meta:
