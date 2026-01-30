@@ -7,177 +7,23 @@ meta:
   modified: 1752836281005
   description: ""
 collection:
-  - name: accounts
-    meta:
-      id: fld_1e0b66ffca51462eb9458970a99408b6
-      created: 1753200439405
-      modified: 1753200439405
-      sortKey: -1753200439405
-      description: Accounts endpoints
-    children:
-      - url: "{{ _.base_url }}/accounts"
-        name: get all accounts
-        meta:
-          id: req_d6ba7caadd014f2dbcda809ab8611641
-          created: 1753200439406
-          modified: 1753200439406
-          isPrivate: false
-          description: get all accounts
-          sortKey: -1753200439406
-        method: GET
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/accounts"
-        name: Create account
-        meta:
-          id: req_f0cad729006a48a49d8638d63514fe9b
-          created: 1753200439406
-          modified: 1753200439406
-          isPrivate: false
-          description: Creates a new account with an initial balance. The account ID is
-            automatically generated.
-          sortKey: -1753200439406
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "type": "string",
-              "initial_balance": 0
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}"
-        name: get account details
-        meta:
-          id: req_38b01d16921e48a8851b7a4c1d5b3da2
-          created: 1753200439407
-          modified: 1753200439407
-          isPrivate: false
-          description: get an account based on id
-          sortKey: -1753200439407
-        method: GET
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}"
-        name: Delete account
-        meta:
-          id: req_57cbb36c42a343a2bc4f772560445a01
-          created: 1753200439407
-          modified: 1753200439407
-          isPrivate: false
-          description: Deletes an account based on id
-          sortKey: -1753200439407
-        method: DELETE
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}/credit"
-        name: credit account
-        meta:
-          id: req_61a96c56fc1f4a5991b679a8f5389bab
-          created: 1753200439407
-          modified: 1753200439407
-          isPrivate: false
-          description: credits an account based on id
-          sortKey: -1753200439407
-        method: POST
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}/debit"
-        name: debit account
-        meta:
-          id: req_ae3eb1c43ada4b468e7dbf00d8b3ff54
-          created: 1753200439407
-          modified: 1753200439407
-          isPrivate: false
-          description: Deletes an account based on id
-          sortKey: -1753200439407
-        method: POST
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
   - name: health
     meta:
-      id: fld_8f45a630d5fa4b5c8d2d357932e23d6f
-      created: 1753200439406
-      modified: 1753200439406
-      sortKey: -1753200439406
-      description: health check
-    children:
-      - url: "{{ _.base_url }}/health"
-        name: health check
-        meta:
-          id: req_4bed84fc54d94a449e8de43cb39b8895
-          created: 1753200439407
-          modified: 1753200439407
-          isPrivate: false
-          description: healtch check
-          sortKey: -1753200439407
-        method: GET
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: health
-    meta:
-      id: fld_97d57edfa1e24aad81f36aaaf99cfa81
-      created: 1753200596784
-      modified: 1753200596784
-      sortKey: -1753200596784
+      id: fld_5a0975366ec34692b8fb40d77a7b2ccc
+      created: 1769755388772
+      modified: 1769755388772
+      sortKey: -1769755388772
       description: health check
     children:
       - url: "{{ _.base_url }}/health"
         name: Health Check
         meta:
-          id: req_08feaf9b4c7e4408a9c2eac509d2915b
-          created: 1753200596786
-          modified: 1753200596786
+          id: req_ecd8ffa8ccec449c9585aeb1f414f45e
+          created: 1769755388774
+          modified: 1769755388774
           isPrivate: false
           description: healtch check
-          sortKey: -1753200596786
+          sortKey: -1769755388774
         method: GET
         settings:
           renderRequestBody: true
@@ -189,29 +35,29 @@ collection:
           rebuildPath: true
   - name: accounts
     meta:
-      id: fld_a25eea8b5b514d709cb170348fa0b6b9
-      created: 1753200596784
-      modified: 1753200596784
-      sortKey: -1753200596784
+      id: fld_e4ac88784a15426897376cb7d5733d94
+      created: 1769755388772
+      modified: 1769755388772
+      sortKey: -1769755388772
       description: Accounts endpoints
     children:
       - url: "{{ _.base_url }}/accounts"
         name: Create Account
         meta:
-          id: req_5277904c3ad8431286ebd19d8378cbaf
-          created: 1753200596784
-          modified: 1753200596784
+          id: req_80b6873630b6484eabc5311744729851
+          created: 1769755388772
+          modified: 1769755570743
           isPrivate: false
           description: Creates a new account with an initial balance. The account ID is
             automatically generated.
-          sortKey: -1753200596784
+          sortKey: -1769755388772
         method: POST
         body:
           mimeType: application/json
           text: |-
             {
-              "type": "string",
-              "initial_balance": 0
+              "type": "checking",
+              "initial_balance": 1000
             }
         headers:
           - name: Content-Type
@@ -225,34 +71,16 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}/credit"
-        name: Credit Account
+      - url: "{{ _.base_url }}/accounts"
+        name: Get All accounts
         meta:
-          id: req_066e6e95cbe94a689d0ac00a10bf3ac1
-          created: 1753200596785
-          modified: 1753200596785
+          id: req_d289bfa3aa2e406c828e05c4641686e4
+          created: 1769755388772
+          modified: 1769755419843
           isPrivate: false
-          description: credits an account based on id
-          sortKey: -1753200596785
-        method: POST
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}"
-        name: Delete Account
-        meta:
-          id: req_a7fc268003b64a1484e6394cbce5423a
-          created: 1753200596785
-          modified: 1753200596785
-          isPrivate: false
-          description: Deletes an account based on id
-          sortKey: -1753200596785
-        method: DELETE
+          description: get all accounts
+          sortKey: -1769755388772
+        method: GET
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -262,14 +90,14 @@ collection:
             store: true
           rebuildPath: true
       - url: "{{ _.base_url }}/accounts/{{ _.account_id }}/debit"
-        name: debit account
+        name: Debit Account
         meta:
-          id: req_d551b9ea495548b886360021813cd52b
-          created: 1753200596785
-          modified: 1753200596785
+          id: req_4833d47c8fd549e3b5bebdd2432a7cc8
+          created: 1769755388773
+          modified: 1769755403090
           isPrivate: false
           description: Deletes an account based on id
-          sortKey: -1753200596785
+          sortKey: -1769755388773
         method: POST
         settings:
           renderRequestBody: true
@@ -282,86 +110,12 @@ collection:
       - url: "{{ _.base_url }}/accounts/{{ _.account_id }}"
         name: Get Account details by Id
         meta:
-          id: req_fc4f3ff116d649c4a4ef899567e25f83
-          created: 1753200596785
-          modified: 1753200596785
+          id: req_5e55b4fa78fe4bafa8d1a24e8f75d061
+          created: 1769755388773
+          modified: 1769755402286
           isPrivate: false
           description: get an account based on id
-          sortKey: -1753200596785
-        method: GET
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/accounts"
-        name: Get All accounts
-        meta:
-          id: req_fe0cc10d54114056a0b56f1522a6673b
-          created: 1753200596785
-          modified: 1753200596785
-          isPrivate: false
-          description: get all accounts
-          sortKey: -1753200596785
-        method: GET
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: accounts
-    meta:
-      id: fld_876d85e16bf948cbbbedd5fa0ca7f9fe
-      created: 1753245844621
-      modified: 1753245844621
-      sortKey: -1753245844621
-      description: Accounts endpoints
-    children:
-      - url: "{{ _.base_url }}/accounts"
-        name: Create account
-        meta:
-          id: req_18fe275bdc814199ba009abad6e9165b
-          created: 1753245844621
-          modified: 1753245864538
-          isPrivate: false
-          description: Creates a new account with an initial balance. The account ID is
-            automatically generated.
-          sortKey: -1753245844621
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "type": "string",
-              "initial_balance": 0
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/accounts"
-        name: get all accounts
-        meta:
-          id: req_5a0d8ef0e86e439c8f220b70d5f6c7cc
-          created: 1753245844621
-          modified: 1753245844621
-          isPrivate: false
-          description: get all accounts
-          sortKey: -1753245844621
+          sortKey: -1769755388773
         method: GET
         settings:
           renderRequestBody: true
@@ -372,14 +126,14 @@ collection:
             store: true
           rebuildPath: true
       - url: "{{ _.base_url }}/accounts/{{ _.account_id }}"
-        name: Delete account
+        name: Delete Account
         meta:
-          id: req_50135b429bbe491f83d81243feee68d5
-          created: 1753245844622
-          modified: 1753245844622
+          id: req_b5b8a4077b1f434dba245193cb777674
+          created: 1769755388773
+          modified: 1769755388773
           isPrivate: false
           description: Deletes an account based on id
-          sortKey: -1753245844622
+          sortKey: -1769755388773
         method: DELETE
         settings:
           renderRequestBody: true
@@ -389,78 +143,16 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}/debit"
-        name: debit account
-        meta:
-          id: req_5f1a72bc611f4bb7829d92632dade618
-          created: 1753245844622
-          modified: 1753245844622
-          isPrivate: false
-          description: Deletes an account based on id
-          sortKey: -1753245844622
-        method: POST
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}/accounts/{{ _.account_id }}"
-        name: get account details
-        meta:
-          id: req_641c810a7db9461b9d9d757c77984e23
-          created: 1753245844622
-          modified: 1753245844622
-          isPrivate: false
-          description: get an account based on id
-          sortKey: -1753245844622
-        method: GET
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
       - url: "{{ _.base_url }}/accounts/{{ _.account_id }}/credit"
-        name: credit account
+        name: Credit Account
         meta:
-          id: req_8e7b76e2ce4f44cc83e183dd3a9f76a2
-          created: 1753245844622
-          modified: 1753245856939
+          id: req_c6b0cea7282f46bb9c5a9797a02aadf7
+          created: 1769755388774
+          modified: 1769755400708
           isPrivate: false
           description: credits an account based on id
-          sortKey: -1753245844622
+          sortKey: -1769755388774
         method: POST
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: health
-    meta:
-      id: fld_93b8d5bcdd594b539781703d89b712a7
-      created: 1753245844621
-      modified: 1753245844621
-      sortKey: -1753245844621
-      description: health check
-    children:
-      - url: "{{ _.base_url }}/health"
-        name: health check
-        meta:
-          id: req_21b423b9fea04e7f96a51301008c28f1
-          created: 1753245844623
-          modified: 1753245844623
-          isPrivate: false
-          description: healtch check
-          sortKey: -1753245844623
-        method: GET
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -480,7 +172,7 @@ environments:
   meta:
     id: env_3282cf868fcd86dfe3290cbf99cf4765c9480ad4
     created: 1752836281009
-    modified: 1753200596783
+    modified: 1769755388771
     isPrivate: false
   data:
     base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
@@ -501,7 +193,7 @@ environments:
       meta:
         id: env_a18e211ddb2d4cf2a8850b91168375fa
         created: 1753200439405
-        modified: 1753200439405
+        modified: 1769755447467
         isPrivate: false
         sortKey: 1753200439405
       data:
@@ -530,6 +222,17 @@ environments:
         scheme: http
         base_path: ""
         host: localhost:8081
+    - name: OpenAPI env localhost:8081
+      meta:
+        id: env_df034618a8de4d4cb2b9c0aac0cab867
+        created: 1769755388771
+        modified: 1769755388771
+        isPrivate: false
+        sortKey: 1769755388771
+      data:
+        scheme: http
+        base_path: ""
+        host: localhost:8081
 spec:
   contents:
     openapi: 3.0.3
@@ -538,7 +241,7 @@ spec:
       version: 1.1.0
       description: This API manages account information and balances.
       contact:
-        email: stephen.brown@konghq.com
+        email: shubham@kong.com
     servers:
       - url: http://localhost:8081
         description: Local development server
@@ -693,7 +396,7 @@ spec:
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1753200722620
+    modified: 1769755288542
 testSuites:
   - name: New Suite
     meta:
@@ -704,90 +407,21 @@ testSuites:
     tests:
       - name: Returns 201
         meta:
-          id: ut_0664187fe1184375b7e15f3224202706
-          created: 1752940413066
-          modified: 1753115398204
-          sortKey: -1753115007835
-        requestId: req_a6158336dc414ddba58d091ce9795a2c
+          id: ut_2ec2aa0ed9ca4f0f9a5ac14b5da193ee
+          created: 1769755474703
+          modified: 1769755499112
+          sortKey: -1769755474704
+        requestId: req_80b6873630b6484eabc5311744729851
         code: |-
-          const response = await insomnia.send();
-          expect(response.status).to.equal(201);
-          const account = JSON.parse(response.data);
-          expect(account).to.have.property('account_id').that.is.a('string');
-          expect(account).to.have.property('type').that.is.a('string');
-          expect(account).to.have.property('balance').that.is.a('number');
+          const response1 = await insomnia.send();
+          expect(response1.status).to.equal(201);
       - name: Returns 200
         meta:
-          id: ut_4927481879254a60a290e2d6630a4608
-          created: 1753113687843
-          modified: 1753114030606
-          sortKey: -1753113687843
-        requestId: req_bc1804a03ffa4f22bdce67fd621d289f
+          id: ut_39f4dc2f80864a41b55b2414a1172009
+          created: 1769755604137
+          modified: 1769755609057
+          sortKey: -1769755604137
+        requestId: req_d289bfa3aa2e406c828e05c4641686e4
         code: |-
-          const response = await insomnia.send();
-          expect(response.status).to.equal(200);
-          const accounts = JSON.parse(response.data);
-          expect(accounts).to.be.an('array');
-          if (accounts.length > 0) {
-           const account = accounts[0];
-           expect(account).to.have.property('account_id');
-          }
-      - name: Returns 200
-        meta:
-          id: ut_96293183cb9e4328915b6fe85f01027a
-          created: 1753114036299
-          modified: 1753114066928
-          sortKey: -1753114036299
-        requestId: req_9ce2372d03b140709716bfa5eabfe9e4
-        code: |-
-          const response = await insomnia.send();
-          expect(response.status).to.equal(200);
-          const body = response.data;
-          expect(body).to.be.a('string');
-          expect(body.toLowerCase()).to.include('accounts api');
-      - name: Returns 200
-        meta:
-          id: ut_b6fc1035714244efa67d4be83e75015b
-          created: 1753114082828
-          modified: 1753114110977
-          sortKey: -1753114082828
-        requestId: req_55fd1701bbe848e687eb980f7e05f5d7
-        code: |-
-          const response = await insomnia.send();
-          expect(response.status).to.equal(200);
-          const account = JSON.parse(response.data);
-          expect(account).to.have.property('balance').that.is.a('number');
-      - name: Returns 200
-        meta:
-          id: ut_7da9e5f4f5234007bc213d6c9fb74540
-          created: 1753114226253
-          modified: 1753114233207
-          sortKey: -1753114226253
-        requestId: req_6ff449fbc9d04bbf9dd22e476142a553
-        code: |-
-          const response = await insomnia.send();
-          expect(response.status).to.equal(200);
-          const account = JSON.parse(response.data);
-          expect(account).to.have.property('balance').that.is.a('number');
-      - name: Returns 200
-        meta:
-          id: ut_6e86501124c94f789a800f9e66a9d2fd
-          created: 1753114258574
-          modified: 1753114267279
-          sortKey: -1753114258574
-        requestId: req_6d1b080324134a5497c703862d2381a4
-        code: |-
-          const response = await insomnia.send();
-          expect(response.status).to.equal(200);
-          const account = JSON.parse(response.data);
-          expect(account).to.have.property('account_id').that.is.a('string');
-      - name: Returns 204
-        meta:
-          id: ut_290d54a9222a4b35b402d28094dea24b
-          created: 1753115007834
-          modified: 1753115404920
-          sortKey: -1753113687842
-        requestId: req_d9cc3b0ad0e845caa4dde9bed355f19e
-        code: |-
-          const response = await insomnia.send();
-          expect(response.status).to.equal(204);
+          const response1 = await insomnia.send();
+          expect(response1.status).to.equal(200);
