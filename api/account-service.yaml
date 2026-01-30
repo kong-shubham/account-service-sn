@@ -1,4 +1,5 @@
 type: spec.insomnia.rest/5.0
+schema_version: "5.1"
 name: account-service
 meta:
   id: wrk_5ba79f58d14b4a2da0a48e86ddcc5c24
@@ -34,8 +35,8 @@ collection:
             }
         headers:
           - name: Content-Type
-            disabled: false
             value: application/json
+            disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -208,7 +209,7 @@ spec:
       version: 1.1.0
       description: This API manages account information and balances.
       contact:
-        email: stephen.brown@konghq.com
+        email: shubham@kong.com
     servers:
       - url: http://localhost:8081
         description: Local development server
@@ -217,7 +218,7 @@ spec:
         post:
           tags:
             - accounts
-          summary: Create account
+          summary: Create Account
           description: Creates a new account with an initial balance. The account ID is
             automatically generated.
           operationId: createAccount
@@ -251,7 +252,7 @@ spec:
         get:
           tags:
             - accounts
-          summary: get all accounts
+          summary: Get All accounts
           description: get all accounts
           operationId: getAllAccounts
           responses:
@@ -261,8 +262,8 @@ spec:
         delete:
           tags:
             - accounts
-          summary: Delete account
-          description: Deletes an account based on id
+          summary: Delete Account
+          description: Deletes an account based on id 123
           operationId: deleteAccount
           parameters:
             - name: account_id
@@ -276,7 +277,7 @@ spec:
         get:
           tags:
             - accounts
-          summary: get account details
+          summary: Get Account details by Id
           description: get an account based on id
           operationId: getAccount
           parameters:
@@ -292,7 +293,7 @@ spec:
         post:
           tags:
             - accounts
-          summary: debit account
+          summary: Debit Account
           description: Deletes an account based on id
           operationId: debitAccount
           parameters:
@@ -308,7 +309,7 @@ spec:
         post:
           tags:
             - accounts
-          summary: credit account
+          summary: Credit Account
           description: credits an account based on id
           operationId: creditAccount
           parameters:
@@ -324,12 +325,12 @@ spec:
         get:
           tags:
             - health
-          summary: health check
+          summary: Health Check
           description: healtch check
           operationId: healtCheck
           responses:
             "200":
-              description: Account credited successfully
+              description: API Working Fine
     components:
       schemas:
         CreateAccountRequest:
@@ -363,7 +364,7 @@ spec:
   meta:
     id: spc_e6cdb6ab3b3247ef892f72f0643aa066
     created: 1752836281008
-    modified: 1753115571474
+    modified: 1769757393674
 testSuites:
   - name: New Suite
     meta:
