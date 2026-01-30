@@ -1,3 +1,4 @@
+extends: spectral:oas
 rules:
   no-delete-operations:
     description: "DELETE operations are not allowed."
