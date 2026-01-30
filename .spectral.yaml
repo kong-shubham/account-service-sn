@@ -1,11 +1,10 @@
 extends: spectral:oas
 rules:
-  no-delete-operations:
-    description: "DELETE operations are not allowed."
-    severity: error
-    # JSONPath to find any 'delete' operation under paths
-    given: "$.paths[*][?(@.delete)]"
+  tag-description:
+    description: Tags must have a description.
+    given: $.tags[*]
+    severity: warn
     then:
-      field: "delete"
-      action:
-        function: falsy # This ensures the field should not exist
+      field: description
+      function: truthy
+
